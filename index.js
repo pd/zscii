@@ -5,8 +5,6 @@ var reader = function(alphabet, abbrevs) {
   this.abbrevs  = abbrevs;
 };
 
-// given an array of words, return a stream of zchars
-// lol not a stream but maybe some day
 reader.prototype.charStream = function(words) {
   return words.reduce(function(acc, word) {
     return acc.concat([

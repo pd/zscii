@@ -1,0 +1,17 @@
+{
+  "framework": "mocha+chai",
+  "serve_files": [ "browserified.js" ],
+  "src_files": [
+    "index.js",
+    "lib/*.js",
+    "test/*_test.coffee"
+  ],
+  "launchers": {
+    "Node": {
+      "command": "mocha test/*_test.coffee --compilers coffee:coffee-script --ui bdd --reporter spec"
+    }
+  },
+  "before_tests": "browserify -t coffeeify test/*_test.coffee -o browserified.js",
+  "on_exit": "rm browserified.js",
+  "launch_in_dev": [ "chrome", "node" ]
+}
