@@ -15,7 +15,9 @@ $ npm install zscii
 
 ~~~~ js
 var zscii = require('zscii');
-// dunno yet
+var coder = new zscii.coder(zscii.Alphabet.v3, new ztables.Abbrev())
+coder.decode(buffer)    //=> "mailbox"
+coder.encode("mailbox") //=> <Buffer ...>
 ~~~~
 
 ## License
