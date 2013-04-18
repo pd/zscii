@@ -20,7 +20,7 @@
     "encoding"
   ],
   "author": "Kyle Hargraves",
-  "license": "BSD",
+  "license": "MIT",
   "readmeFilename": "README.md",
   "devDependencies": {
     "chai": "~1.5.0",
