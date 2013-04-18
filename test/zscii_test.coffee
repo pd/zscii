@@ -1,5 +1,5 @@
 expect = require('chai').expect
-zscii  = require('../index')
+zscii  = require('..')
 
 describe 'Alphabets', ->
   it 'should know the v1 alphabet', ->

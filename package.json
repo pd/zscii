@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "ZSCII interpreter",
   "main": "index.js",
+  "directories": {
+    "lib": "./lib"
+  },
   "scripts": {
     "test": "testem"
   },
