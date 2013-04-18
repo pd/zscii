@@ -8,10 +8,11 @@
   ],
   "launchers": {
     "Node": {
-      "command": "mocha test/*_test.coffee --compilers coffee:coffee-script --ui bdd --reporter spec"
+      "command": "mocha test/*_test.coffee --compilers coffee:coffee-script --reporter tap"
     }
   },
   "before_tests": "browserify -t coffeeify test/*_test.coffee -o browserified.js",
   "on_exit": "rm browserified.js",
-  "launch_in_dev": [ "chrome", "node" ]
+  "launch_in_dev": [ "chrome", "node", "phantomjs" ],
+  "launch_in_ci": [ "node", "phantomjs" ]
 }
