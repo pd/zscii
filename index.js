@@ -61,7 +61,12 @@ module.exports = {
  * @see http://www.gnelson.demon.co.uk/zspec/sect03.html
  */
 function zstring(words) {
-  this.words = words;
+  this.words = [];
+  for (var i = 0, n = words.length; i < n; i++) {
+    this.words.push(words[i]);
+    if ((words[i] & 0x8000) !== 0)
+      break;
+  }
 }
 
 zstring.prototype = {

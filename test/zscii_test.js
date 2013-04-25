@@ -59,6 +59,35 @@ describe('zscii.pack', function() {
   });
 });
 
+describe('zscii.zstring', function() {
+  var zstring = zscii.zstring;
+
+  it('unpacks the given words into zchars', function() {
+    [ [1, 2, 3],
+      [8, 9, 4, 7, 5, 5],
+      [5, 5, 5]
+    ].forEach(function(zchars) {
+      var packed = zscii.pack(zchars);
+      var zstr   = new zstring(packed);
+      assert.deepEqual(zstr.zchars(), zchars);
+    });
+  });
+
+  it('knows its own length in bytes', function() {
+    assert.equal(new zstring([]).byteLength, 0);
+    assert.equal(new zstring([0x01a1]).byteLength, 2);
+    assert.equal(new zstring([0x01a1, 0x02b2]).byteLength, 4);
+  });
+
+  it('drops all words given after a word with its 0-bit set', function() {
+    // zscii.pack([0, 1, 2, 3, 4, 5, 6, 7, 8]), set 0-bit on [3,4,5] word
+    var packed = [0x0022, 0x8c85, 0x18e8];
+    var zstr   = new zstring(packed);
+    assert.equal(zstr.byteLength, 4);
+    assert.deepEqual(zstr.zchars(), [0, 1, 2, 3, 4, 5]);
+  });
+});
+
 describe('zscii.coder', function() {
   function MockAbbrevs() {
     var entries = {};
