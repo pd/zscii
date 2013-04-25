@@ -1,7 +1,7 @@
 {
   "name": "zscii",
   "version": "0.1.0",
-  "description": "ZSCII interpreter",
+  "description": "ZSCII-encoded string handling",
   "main": "index.js",
   "directories": {
     "lib": "./lib"
@@ -25,9 +25,7 @@
   "devDependencies": {
     "chai": "~1.5.0",
     "mocha": "~1.9.0",
-    "coffee-script": "~1.6.2",
     "testem": "~0.2.83",
-    "coffeeify": "~0.4.0",
     "browserify": "~2.12.0"
   },
   "dependencies": {}

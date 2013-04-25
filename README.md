@@ -14,18 +14,15 @@ $ npm install zscii
 ~~~~
 
 ## API
-Possibly:
+Something like:
 
 ~~~~ js
 var zscii = require('zscii');
-var coder = new zscii.coder(zscii.Alphabet.v3, new ztables.Abbrev())
-coder.decode(buffer)    //=> "mailbox"
-coder.encode("mailbox") //=> <Buffer ...>
+var coder = new zscii.coder(zscii.alphabetForVersion(3), abbrevs);
+coder.decode([0x10af, 0x3ead]) //=> "mailbox"
+zstr = coder.encode("mailbox") //=> zstring([0x10af, 0x3ead])
+zstr.zchars() //=> [24, 6, ...]
 ~~~~
-
-But not yet. I need to spend some time determining how I can work with
-Buffers in both node and the browser before I commit to a particular
-interface.
 
 ## License
 

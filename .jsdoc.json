@@ -1,0 +1,20 @@
+{
+    "tags": {
+        "allowUnknownTags": true
+    },
+    "plugins": [
+        "plugins/markdown"
+    ],
+    "markdown": {
+        "parser": "gfm",
+        "tags": ["exceptions"]
+    },
+    "templates": {
+        "cleverLinks": true
+    },
+    "opts": {
+        "destination": "./doc/",
+        "recurse": true
+    },
+    "jsVersion": 180
+}
